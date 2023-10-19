@@ -1,0 +1,70 @@
+<h3>Formularios reactivos: <small>Dinámicos</small></h3>
+
+<hr>
+
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <!-- Nombre -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+            <input class="form-control" formControlName="name" placeholder="Nombre de la persona">
+            <span *ngIf="isValidField('name')" class="form-text text-danger">
+                {{ getFieldError('name') }}
+            </span>
+        </div>
+    </div>
+
+    <!-- Agregar un videojuego favorito -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Agregar</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <input class="form-control" [formControl]="newFavorite" placeholder="Agregar videojuego">
+                <button class="btn btn-primary" type="button" (click)="onAddToFavorites()">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de los videojuegos favoritos -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Favoritos</label>        
+        <div class="col-sm-9" formArrayName="favoriteGames">
+            <div class="mb-1" *ngFor="let favorite of favoriteGames.controls; let i = index">
+                <div class="input-group">
+                    <input class="form-control" [formControlName]="i">
+                    <button class="btn btn-danger" type="button" (click)="onDeleteFavorite(i)">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+                <span class="form-text text-danger" *ngIf="isValidFieldInArray(favoriteGames, i)">
+                    Este campo es requerido!
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary float-end">Guardar</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col fw-bold">
+        <span>Valid</span>
+        <pre>{{ dynamicForm.valid | json }}</pre>
+        
+        <span>Value</span>
+        <pre>{{ dynamicForm.value | json }}</pre>
+        
+        <span>Agregar Juego - Valid</span>
+        <pre>{{ newFavorite.valid | json }}</pre>
+
+        <span>Agregar Juego - Value</span>
+        <pre>{{ newFavorite.value | json }}</pre>
+    </div>
+</div>
+
