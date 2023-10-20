@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <!-- Password -->
+            <!-- Contraseña -->
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Contraseña</label>
                 <div class="col-sm-9">
@@ -100,27 +100,22 @@
         <h5>Form Status : {{ registerForm.status }}</h5>
         <h5>Form Pending : {{ registerForm.pending }}</h5>
         
-        <span>Form errors</span>
+        <span>Form Errors</span>
         <pre>{{ registerForm.errors | json }}</pre>
         
-        <span>Nombre y errores</span>
-        <pre>{{ registerForm.value.name | json }}</pre>
+        <span>Nombre</span>
         <pre>{{ registerForm.controls['name'].errors | json }}</pre>
         
-        <span>Email y errores</span>
-        <pre>{{ registerForm.value.email | json }}</pre>
+        <span>Email</span>
         <pre>{{ registerForm.controls['email'].errors | json }}</pre>
         
-        <span>Username y errores</span>
-        <pre>{{ registerForm.value.username | json }}</pre>
+        <span>Username</span>
         <pre>{{ registerForm.controls['username'].errors | json }}</pre>        
         
-        <span>Password y errores</span>
-        <pre>{{ registerForm.value.password | json }}</pre>
-        <pre>{{ registerForm.controls['password'] | json }}</pre>
+        <span>Password</span>
+        <pre>{{ registerForm.controls['password'].errors | json }}</pre>
         
-        <span>Confirmar y errores</span>
-        <pre>{{ registerForm.value.passwordconfirm | json }}</pre>
+        <span>Confirmar</span>
         <pre>{{ registerForm.controls['passwordconfirm'].errors | json }}</pre>        
     </div>
 </div>
