@@ -7,16 +7,16 @@
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
             <!-- Nombre -->
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Nombre</label>
+                <label class="col-sm-3 col-form-label">Usuario</label>
                 <div class="col-sm-9">
                     <input
                         class="form-control"
                         type="text"
                         formControlName="name"
-                        placeholder="Nombre del usuario"
+                        placeholder="Nombre y apellidos del usuario"
                     >
                     <span class="form-text text-danger">
-                        Debe de ser en formato de nombre y apellido
+                        Debe de ser en formato de nombre y apellidos
                     </span>
                 </div>
             </div>
@@ -100,7 +100,7 @@
         <h5>Form Status : {{ registerForm.status }}</h5>
         <h5>Form Pending : {{ registerForm.pending }}</h5>
         
-        <span>Form Errors</span>
+        <h5>Form Errors</h5>
         <pre>{{ registerForm.errors | json }}</pre>
         
         <span>Nombre</span>
