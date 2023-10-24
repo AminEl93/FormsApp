@@ -15,7 +15,7 @@
                         formControlName="name"
                         placeholder="Nombre y apellidos del usuario"
                     >
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isValidField('name')">
                         Debe de ser en formato de nombre y apellidos
                     </span>
                 </div>
@@ -31,8 +31,8 @@
                         formControlName="email"
                         placeholder="Email del usuario"
                     >
-                    <span class="form-text text-danger">
-                        Email incorrecto
+                    <span class="form-text text-danger" *ngIf="isValidField('email')">
+                        El email es incorrecto
                     </span>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                         formControlName="username"
                         placeholder="Username del usuario"
                     >
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isValidField('username')">
                          El username no puede ser Goku
                     </span>
                 </div>
@@ -63,7 +63,7 @@
                         formControlName="password"
                         placeholder="Contraseña de la cuenta"                       
                     >
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isValidField('password')">
                          La contraseña debe de ser mayor de 6 carácteres.
                     </span>
                 </div>
@@ -79,7 +79,7 @@
                         formControlName="passwordconfirm"
                         placeholder="Confirmar la contraseña"
                     >
-                    <span class="form-text text-danger">
+                    <span class="form-text text-danger" *ngIf="isValidField('passwordconfirm')">
                         Las contraseñas deben de ser iguales
                     </span>
                 </div>
