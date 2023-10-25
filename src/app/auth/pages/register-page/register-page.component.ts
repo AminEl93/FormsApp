@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 // import * as customValidators from 'src/app/shared/validators/validators';
 
 import { ValidatorsService } from '../../../shared/services/validators.service';
-
+import { EmailValidator } from '../../../shared/validators/email-validator.service';
 
 @Component({
     templateUrl: './register-page.component.html'
@@ -13,7 +13,7 @@ export class RegisterPageComponent {
 
     public registerForm: FormGroup = this.fb.group({
         name: [ '', [Validators.required, Validators.pattern(this._validatorsService.firstNameAndLastnamePattern)] ],
-        email: [ '', [Validators.required, Validators.pattern(this._validatorsService.emailPattern)] ],
+        email: [ '', [Validators.required, Validators.pattern(this._validatorsService.emailPattern)], [this._emailValidator] ],
         username: [ '', [Validators.required, this._validatorsService.cantBeGoku] ],
         password: [ '', [Validators.required, Validators.minLength(6)] ],
         passwordconfirm: [ '', [Validators.required] ],
@@ -21,7 +21,8 @@ export class RegisterPageComponent {
     
     constructor(
         private fb: FormBuilder,
-        private _validatorsService: ValidatorsService
+        private _validatorsService: ValidatorsService,
+        private _emailValidator: EmailValidator
     ) { }
 
     isValidField(field: string) {
