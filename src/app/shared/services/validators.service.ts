@@ -40,6 +40,7 @@ export class ValidatorsService {
         }
     }
 
+    // Otras versiones que funcionan
     /*
     public isFieldOneEqualToFieldTwo = (field1: string, field2: string) => {
         return (formGroup: AbstractControl): ValidationErrors | null => {
