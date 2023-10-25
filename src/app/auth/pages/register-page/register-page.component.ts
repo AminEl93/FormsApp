@@ -16,7 +16,9 @@ export class RegisterPageComponent {
         email: [ '', [Validators.required, Validators.pattern(this._validatorsService.emailPattern)], [this._emailValidator] ],
         username: [ '', [Validators.required, this._validatorsService.cantBeGoku] ],
         password: [ '', [Validators.required, Validators.minLength(6)] ],
-        passwordconfirm: [ '', [Validators.required] ],
+        passwordconfirm: [ '', [Validators.required] ]
+    }, {
+        validators: [ this._validatorsService.isFieldOneEqualFieldTwo('password','passwordconfirm') ]
     });    
     
     constructor(
