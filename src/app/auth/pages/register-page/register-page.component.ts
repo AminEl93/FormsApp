@@ -18,7 +18,7 @@ export class RegisterPageComponent {
         password: [ '', [Validators.required, Validators.minLength(6)] ],
         passwordconfirm: [ '', [Validators.required] ]
     }, {
-        validators: [ this._validatorsService.isFieldOneEqualFieldTwo('password','passwordconfirm') ]
+        validators: [ this._validatorsService.isFieldOneEqualToFieldTwo('password','passwordconfirm') ]
     });    
     
     constructor(
